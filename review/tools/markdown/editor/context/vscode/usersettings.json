@@ -1,0 +1,15 @@
+{
+    "update.channel": "none",
+    "extensions.autoUpdate" : false,
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 60000,
+    "spellright.language": [
+        "English (American)"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ]
+}

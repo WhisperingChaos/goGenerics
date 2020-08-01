@@ -1,0 +1,17 @@
+# Install vscode extensions
+FROM basemarkdown
+COPY vscode/bierner.markdown-preview-github-styles-0.1.4.vsix /tmp
+RUN su user -p -c 'code --install-extension /tmp/bierner.markdown-preview-github-styles-0.1.4.vsix' \
+ && rm /tmp/bierner.markdown-preview-github-styles-0.1.4.vsix
+
+COPY vscode/ban.spellright-3.0.18.vsix /tmp
+RUN su user -p -c 'code --install-extension /tmp/ban.spellright-3.0.18.vsix' \
+ && su user -p -c 'mkdir -p $HOME/.config/Code/Dictionaries' \
+ && su user -p -c 'cd $HOME/.config/Code/Dictionaries && curl "https://raw.githubusercontent.com/titoBouzout/Dictionaries/master/English%20(American).aff" --output "English (American).aff"' \
+ && su user -p -c 'cd $HOME/.config/Code/Dictionaries && curl "https://raw.githubusercontent.com/titoBouzout/Dictionaries/master/English%20(American).dic" --output "English (American).dic"' \
+ && rm /tmp/ban.spellright-3.0.18.vsix
+
+COPY vscode/blackmist.LinkCheckMD-0.1.5.vsix /tmp
+RUN su user -p -c 'code --install-extension /tmp/blackmist.LinkCheckMD-0.1.5.vsix' \
+ && rm /tmp/blackmist.LinkCheckMD-0.1.5.vsix
+
